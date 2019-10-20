@@ -14,17 +14,20 @@ function draw() {
   background(51)
   imageMode(CENTER)
 
-  renderNave()
   renderWorld()
+  renderNave()
 }
 
 function renderWorld() {
+  push()
   translate(width / 2, height + height/1.1)
   rotate(angle -= 0.0002)
   image(world, 0, 0, 1700, 1700)  
+  pop()
 }
 
 function renderNave() {
+  push()
   image(nave, navePos, height/1.5, 150, 100)
 
   if (keyIsDown(LEFT_ARROW)) {
@@ -32,4 +35,5 @@ function renderNave() {
   } else if (keyIsDown(RIGHT_ARROW)) {
     navePos += navePeso
   }
+  pop()
 }
